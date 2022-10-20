@@ -1,0 +1,59 @@
+<div class="center">
+  <ng-template #templateName>
+    <app-register></app-register>
+  </ng-template>
+
+  <div class="center">
+    <div id="centerContent" class="center--content center--content-height1">
+      <div class="static">
+        <div id="registerBtn" class="static m-fadeOut">
+          <button class="logo2" (click)="onRegisterButonTop()"></button>
+          <img class="logo" src="../../../assets/img/LOGO.svg" />
+        </div>
+      </div>
+      <div class="center--content" *ngIf="!this.t; else templateName">
+        <ion-icon src="assets/img/LOGO.svg"></ion-icon>
+        <div class="login-content">
+          <label class="field"><i>E-mail</i></label>
+          <div class="field">
+            <input
+              class="input"
+              name="email"
+              type="email"
+              [(ngModel)]="userEmail"
+            />
+            <label class="field"><i>Senha</i></label>
+            <div class="field">
+              <input
+                id="inp-Password"
+                class="input"
+                name="password"
+                type="password"
+                [(ngModel)]="userPassword"
+              />
+              <button class="pas-btn" (click)="onShow()">
+                <ion-icon
+                  id="ionShow"
+                  class="teste"
+                  name="eye-off-outline"
+                ></ion-icon>
+              </button>
+            </div>
+            <div class="warn" *ngIf="warn">Email ou senha inválidos</div>
+            <div class="lower">
+              <button class="confbtn btn4" (click)="onConfirmarButton()">
+                <i>Confirmar</i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="Login">
+          Não possuí conta?
+          <a class="Login-link" (click)=" onRegisterButon()"
+            ><i>Cadastre-se</i></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

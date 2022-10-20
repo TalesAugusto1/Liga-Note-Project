@@ -1,0 +1,41 @@
+<div class="center">
+  <div id="whiteSquare" class="center--content">
+    <div class="field">
+      <label class="registerLabel">Nome completo*</label>
+      <input class="input" name="nome" type="name" [(ngModel)]="userName" />
+    </div>
+    <div class="field">
+      <label class="registerLabel">E-mail*</label>
+      <input class="input" type="email" [(ngModel)]="userEmail" />
+    </div>
+    <div class="field">
+      <label class="registerLabel">Confirme o E-mail*</label>
+      <input class="input" type="email" />
+    </div>
+    <div class="field">
+      <label class="registerLabel">Senha*</label>
+      <input class="input" type="password" [(ngModel)]="userPassword" />
+    </div>
+    <div class="field">
+      <label class="registerLabel">Confirme a senha*</label>
+      <input class="input" type="password" />
+    </div>
+    <div class="fix-labels">
+      <div class="field info counter-btn">*campos obrigatórios.</div>
+
+      <div class="field info counter-btn">
+        Ao registrar-me, concordo com os termos de uso e a Política de
+        Privacidade do apliativo.
+      </div>
+    </div>
+
+    <div class="field">
+      <button
+        class="confbtn btn4 counter-btn"
+        (click)="onConfirmRegisterButton()"
+      >
+        <i>Criar conta</i>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,193 @@
+.background-square {
+  height: 50px;
+  width: 100px;
+  background-color: #555;
+}
+
+.public-logo {
+  // background-image: url("../../assets/img/Logo-Feed.png");
+  width: 105px;
+  height: 83px;
+  top: 10px;
+}
+
+.public-itens {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10%;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  text-align: center;
+  align-items: center;
+}
+
+.fullCard {
+  justify-content: center;
+  margin: 11px;
+}
+
+.post {
+  width: 90vw !important;
+  min-width: 340px;
+  //height: 180px;
+  // margin-left: 5%;
+  padding-bottom: 10px;
+
+  &-Header {
+    display: flex;
+
+    align-items: center;
+    align-content: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    padding: 10px;
+    &-Alignment {
+      display: flex;
+    }
+
+    &-Name {
+      margin: 12px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      align-self: flex-start;
+      justify-content: left;
+    }
+  }
+
+  &-Footer {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+.marge {
+  &-top {
+    margin-top: 10px;
+  }
+  &-page {
+    margin-top: 10px;
+  }
+}
+
+.readMore {
+  background-color: #ffffff00;
+  // margin-top: 20px;
+  font-size: small;
+
+  &Open {
+    height: min-content;
+    width: 100%;
+
+    max-height: 25rem;
+    transform: scaleY(100%);
+  }
+
+  &Closed {
+    display: none;
+  }
+}
+
+.prof {
+  &-Image {
+    //margin-left: 3vw;
+    height: 60px;
+    width: 60px;
+
+    border-radius: 50%;
+    // align-self: center;
+  }
+  // margin-left: 30px;
+  &-Name {
+    // margin-top: 20px;
+    font-style: italic;
+    font-style: bold;
+    font-size: large;
+    color: black;
+    // align-self: center;
+  }
+  &-Work {
+    // margin-top: 40px;
+    font-size: small;
+    color: rgb(99, 99, 99);
+    align-self: center;
+  }
+
+  &-Input {
+    border-radius: 20px;
+    width: 65%;
+    height: 30px;
+    margin-top: 5px;
+    padding-left: 2%;
+    background-color: #ffffff00;
+    font-size: small;
+  }
+
+  &-Button {
+    border-radius: 20px;
+    width: 35px;
+    height: 35px;
+    margin-bottom: -10px;
+
+    padding-left: 2%;
+    font-size: small;
+    background-color: #ffffff00;
+
+    &-1 {
+      margin-left: 5%;
+    }
+
+    &-2 {
+      margin-left: 0vw;
+    }
+  }
+}
+
+.end {
+  margin-bottom: 125px !important;
+}
+
+.oneComment {
+  &-img {
+    margin-left: -60vw;
+    height: 10px;
+    border-radius: 50%;
+    width: 40px;
+    height: auto;
+  }
+  &-align {
+    width: auto;
+    text-align: left;
+    margin-left: 22vw;
+  }
+  &-name {
+    height: 20px;
+  }
+  &-content {
+    height: 10px;
+    font-size: small;
+    margin-right: 10vw;
+  }
+
+  &-space {
+    height: 25px;
+  }
+}
+
+.input-btn {
+  margin-left: -19vw;
+  background-color: #ffffff00;
+  font-size: smaller;
+  margin-top: 6px;
+}
+
+.space {
+  width: 40%;
+}

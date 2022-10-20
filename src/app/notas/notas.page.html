@@ -1,0 +1,134 @@
+<div class="container">
+  <div class="logo">
+    <img src="assets/img/LOGO.svg" />
+  </div>
+  <section class="flex">
+    <div class="center-notes">
+      <div class="no-content" *ngIf="!this.result.lenght">
+        Opa, nenhuma nota foi criada ainda!
+      </div>
+      <ng-container *ngFor="let nota of result; let index = index">
+        <app-notes-postits
+          [id]="nota"
+          [item]="nota"
+          [cardIndex]="index"
+          class="nota marge2"
+          (click)="onClickNotes($event, nota)"
+        >
+        </app-notes-postits>
+      </ng-container>
+    </div>
+  </section>
+  <img class="user-Experience" src="../../assets/img/opcional-sem-fundo.png" />
+  <div class="nav-bar">
+    <div class="nav-bar-item">
+      <button class="btn btn2" (click)="onNotasButton()">
+        <img src="../../assets/img/calendar.png" />
+      </button>
+      <button class="btn btn2" (click)="onPublicoButton()">
+        <img src="../../assets/img/home.png" />
+      </button>
+      <button class="btn btn2" (click)="onPerfilButton()">
+        <img src="../../assets/img/user.png" />
+      </button>
+    </div>
+  </div>
+
+  <div class="limit">
+    <div
+      id="cardInd1"
+      class="arlequine nota-lower color-red alinnotas not1rot"
+      (click)="onClickLowerNotes('cardInd1')"
+    ></div>
+    <div
+      id="cardInd2"
+      class="arlequine nota-lower color-light-red alinnotas not2rot"
+      (click)="onClickLowerNotes('cardInd2')"
+    ></div>
+    <div
+      id="cardInd3"
+      class="arlequine nota-lower color-green alinnotas not3rot"
+      (click)="onClickLowerNotes('cardInd3')"
+    ></div>
+    <div
+      id="cardInd4"
+      class="arlequine nota-lower color-yellow alinnotas not4rot"
+      (click)="onClickLowerNotes('cardInd4')"
+    ></div>
+    <div
+      id="cardInd5"
+      class="arlequine nota-lower color-blue alinnotas not5rot"
+      (click)="onClickLowerNotes('cardInd5')"
+    ></div>
+    <div
+      id="cardInd6"
+      class="arlequine nota-lower color-purple alinnotas not6rot"
+      (click)="onClickLowerNotes('cardInd6')"
+    ></div>
+  </div>
+</div>
+
+<div
+  class="jokerCard"
+  id="joker"
+  [style.backgroundColor]="openedCardInformation?.color"
+  [style]="{left:jokerPosition.left, top:jokerPosition.top} "
+>
+  <div class="joker-Menu" (click)="onJMenuClick()">
+    <button class="joker-Menu-btn">
+      <ion-icon name="ellipsis-vertical-outline"> </ion-icon>
+    </button>
+
+    <div class="joker-Menu-hidden" *ngIf="jMenuBtn">
+      <button class="joker-Menu-hidden-btn" (click)="onEditBtn()">
+        Editar
+      </button>
+      <button
+        class="joker-Menu-hidden-btn"
+        (click)="onPublicBtn(openedCardInformation)"
+      >
+        Publicar no feed
+      </button>
+      <button
+        class="joker-Menu-hidden-btn"
+        (click)="onDeleteBtn(openedCardInformation)"
+      >
+        Excluir
+      </button>
+    </div>
+  </div>
+
+  <input
+    id="jTitle"
+    class="postit-title point-none"
+    [(ngModel)]="openedCardInformation.title "
+  /><textarea
+    id="jBody"
+    class="point-none"
+    [(ngModel)]="openedCardInformation.body "
+  ></textarea>
+  <button class="jokerContentBtn" (click)="onExit()">Colar no Mural</button>
+</div>
+
+<div
+  class="arlequineCard"
+  id="arlequine"
+  [style.backgroundColor]="lowerCardInformation?.color"
+  [style]="{left:arlequinePosition.left, top:arlequinePosition.top} "
+>
+  <button class="closeLowerCardButton" (click)="closeLowerCardBtn()">X</button>
+
+  <input
+    class="postit-title"
+    [(ngModel)]="lowerCardInformation.title "
+    placeholder="Título da Nota"
+  /><textarea
+    id="jBody"
+    class="arlequine-Body"
+    [(ngModel)]="lowerCardInformation.body "
+    placeholder="Inserir anotações aqui...."
+  ></textarea>
+  <button class="jokerContentBtn" (click)="onAddSubject()">
+    Colar no Mural
+  </button>
+</div>

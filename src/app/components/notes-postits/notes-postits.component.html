@@ -1,0 +1,10 @@
+<div
+  class="base"
+  [style.backgroundColor]="item?.color"
+  (click)="onClickNotes($event)"
+>
+  <input class="postit-title" placeholder="{{ item?.title }}" /><textarea
+    class="textbody"
+    placeholder="{{ item?.body }}"
+  ></textarea>
+</div>

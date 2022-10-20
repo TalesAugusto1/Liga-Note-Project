@@ -1,0 +1,107 @@
+<div class="container-profile">
+  <div class="page">
+    <div class="profile-body">
+      <button class="side-menu-buton" (click)="onSideMenu(sideMenu)"></button>
+      <div class="prof-img">
+        <img class="circle" src="../../assets/img/blank-profile.png" />
+      </div>
+      <div class="abtu">
+        <div class="abtu-name"><b>{{name}}</b></div>
+        <div class="abtu-work">{{work}}</div>
+        <div class="abtu-description">NOTAS PÚBLICAS</div>
+      </div>
+      <div class="page-content" style="overflow: auto">
+        <ng-container *ngFor="let item of list; let index = index">
+          <div class="fullCard">
+            <div *ngIf="item.isPublic">
+              <div class="post marge-top" [style.backgroundColor]="item.color">
+                <div class="post-Header">
+                  <div class="post-Header-Alignment">
+                    <img
+                      class="prof-Image"
+                      src="../../assets/img/blank-profile.png"
+                    />
+                    <div class="post-Header-Name">
+                      <label class="prof prof-Name"> {{name}} </label>
+                      <label class="prof prof-Work"> {{work}} </label>
+                    </div>
+                  </div>
+
+                  <button class="readMore" (click)="onComments(item)">
+                    Ler mais+
+                  </button>
+                </div>
+                <app-notes-postits [item]="item" [cardIndex]="index">
+                </app-notes-postits>
+                <div
+                  class="comments"
+                  [style.backgroundColor]="item.color"
+                  [class]="item.isReadingMore ? 'readMoreOpen' : 'readMoreClosed' "
+                  *ngFor="let element of item.comments; let commentIndex = index"
+                ></div>
+
+                <div class="post-Footer" [style.backgroundColor]="item.color">
+                  <input
+                    #commentInput
+                    class="prof-Input"
+                    placeholder="Inserir comentário "
+                    [style.backgroundColor]="item.color"
+                  /><button
+                    class="input-btn"
+                    (click)="onPostNote(item, commentInput)"
+                  >
+                    Publicar
+                  </button>
+
+                  <ion-icon
+                    class="prof-Button prof-Button-1"
+                    name="chatbubble-outline"
+                    (click)="onComments(item)"
+                  ></ion-icon>
+                  <ion-icon
+                    class="prof-Button prof-Button-2"
+                    name="heart-outline"
+                    [name]="item.likeIconName"
+                    (click)="onClickClass(item)"
+                    ngClass="heart-outline"
+                  ></ion-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <div class="end"></div>
+      </div>
+    </div>
+    <div class="nav-bar">
+      <button class="btn btn2" (click)="onNotasButton()">
+        <img src="../../assets/img/calendar.png" />
+      </button>
+      <button class="btn btn2" (click)="onPublicoButton()">
+        <img src="../../assets/img/unselect-home.png" />
+      </button>
+      <button class="btn btn2" (click)="onPerfilButton()">
+        <img src="../../assets/img/user-select.png" />
+      </button>
+    </div>
+  </div>
+</div>
+
+<div [class.closed-sidebar]="sideMenu" class="side-menu">
+  <button class="closebtn" (click)="onSideMenu(!sideMenu)">
+    <div class="closebtn-txt">
+      <img src="../../assets/img/back-arrow.png" />
+    </div>
+  </button>
+  <div class="side-menu-itens title"><b>Ajustes</b></div>
+
+  <div class="side-menu-itens">
+    <ul class="no-bullets">
+      <li>ajustes</li>
+      <li>ajustes</li>
+      <li>ajustes</li>
+      <li>ajustes</li>
+    </ul>
+    <img src="assets/img/LOGO.png" class="setting-img" />
+  </div>
+</div>

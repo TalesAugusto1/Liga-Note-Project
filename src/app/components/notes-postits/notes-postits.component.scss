@@ -1,0 +1,91 @@
+:host {
+  --postlado: 40vw;
+  --degrees: 10deg;
+  --translate: 16px;
+  --translatey: 6px;
+  --top-distance: 3vh;
+  --space-between-lines: -180px;
+}
+
+.nota {
+  // margin-left: -4px;
+  transition: 1s;
+  width: var(--postlado);
+  height: var(--postlado);
+}
+.base {
+  width: 100%;
+  min-height: 100px;
+  height: 100%;
+  position: relative;
+
+  overflow: hidden;
+}
+.postit-title {
+  padding: 10px;
+  width: fill;
+  height: 5vh;
+  text-align: center;
+  font-size: larger !important;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  border: 0px;
+  background-color: #ffffff00;
+  color: #000000;
+
+  outline: 0;
+  transition: border-bottom 2s;
+  pointer-events: none;
+}
+
+.postit-title:focus {
+  border-bottom: 3px solid #000000;
+  padding: 3px;
+  font-size: larger;
+  pointer-events: none;
+}
+
+.textbody {
+  transition: 2s;
+  width: fill;
+  min-height: 140px;
+  font-size: 10px;
+
+  justify-content: center;
+
+  color: #000000;
+
+  padding: 10px;
+  border: 0px;
+  box-sizing: border-box;
+
+  background-color: #f8f8f800;
+  outline: 0;
+  resize: none;
+  pointer-events: none;
+}
+
+.openCard {
+  width: 90vw;
+  height: 80vh;
+}
+
+.jokerCard {
+  width: var(--postlado);
+  height: var(--postlado);
+  background-color: #000000;
+  position: absolute;
+  z-index: 9999;
+}
+
+.pub-btn {
+  position: absolute;
+  right: 0;
+  height: 20px;
+  width: 20px;
+  z-index: 10;
+  pointer-events: all;
+}

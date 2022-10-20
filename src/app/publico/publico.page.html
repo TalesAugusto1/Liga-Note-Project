@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="page">
+    <div class="public-itens" overflow="scroll">
+      <div class="public-logo">
+        <img src="../../assets/img/Logo-Feed.png" />
+      </div>
+      <div class="marge-page">
+        <ng-container *ngFor="let item of list; let index = index">
+          <div class="fullCard">
+            <div *ngIf="item.isPublic">
+              <div class="post marge-top" [style.backgroundColor]="item.color">
+                <div class="post-Header">
+                  <div class="post-Header-Alignment">
+                    <img
+                      class="prof-Image"
+                      src="../../assets/img/blank-profile.png"
+                    />
+                    <div class="post-Header-Name">
+                      <label class="prof prof-Name"> {{name}} </label>
+                      <label class="prof prof-Work"> {{work}} </label>
+                    </div>
+                  </div>
+
+                  <button class="readMore" (click)="onComments(item)">
+                    Ler mais+
+                  </button>
+                </div>
+                <app-notes-postits [item]="item" [cardIndex]="index">
+                </app-notes-postits>
+                <div
+                  class="comments"
+                  [style.backgroundColor]="item.color"
+                  [class]="item.isReadingMore ? 'readMoreOpen' : 'readMoreClosed' "
+                  *ngFor="let element of item.comments; let commentIndex = index"
+                ></div>
+
+                <div class="post-Footer" [style.backgroundColor]="item.color">
+                  <input
+                    #commentInput
+                    class="prof-Input"
+                    placeholder="Inserir comentário "
+                    [style.backgroundColor]="item.color"
+                  /><button
+                    class="input-btn"
+                    (click)="onPostNote(item, commentInput)"
+                  >
+                    Publicar
+                  </button>
+
+                  <ion-icon
+                    class="prof-Button prof-Button-1"
+                    name="chatbubble-outline"
+                    (click)="onComments(item)"
+                  ></ion-icon>
+                  <ion-icon
+                    class="prof-Button prof-Button-2"
+                    name="heart-outline"
+                    [name]="item.likeIconName"
+                    (click)="onClickClass(item)"
+                    ngClass="heart-outline"
+                  ></ion-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <div class="end"></div>
+    </div>
+    <div class="nav-bar">
+      <button class="btn btn2" (click)="onNotasButton()">
+        <img src="../../assets/img/calendar-select.png" />
+      </button>
+      <button class="btn btn2" (click)="onPublicoButton()">
+        <img src="../../assets/img/unselect-home.png" />
+      </button>
+      <button class="btn btn2" (click)="onPerfilButton()">
+        <img src="../../assets/img/user.png" />
+      </button>
+    </div>
+  </div>
+</div>
